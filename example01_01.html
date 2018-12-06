@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>여기는 제목입니다.</title>
+<style type="text/css">
+	span { font-size: 30pt;   }
+	.redtext   { color : #f00;   }
+	.italictext { font-style: italic;   }
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script>
+    /*
+        1. 객체는 따운표를 붙이지 않는다
+        2. 선택자일경우는 따운표를 붙이고 문자일경우도 붙인다 
+    */
+    $(document).ready(function(){
+        $("span").addClass("redtext");
+        $(".redtext").click(function(){
+            $(this).css("color", 'blue');
+        });
+    });
+</script>
+</head>
+<body>
+<span> simple </span>
+<script>
+	$("span").addClass("italictext");
+</script>
+</body>
+</html>
