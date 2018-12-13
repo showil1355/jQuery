@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트의 모든 부모 엘리먼트 찾기</title>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    /* b요소의 조상(parents) 요소들의 태그를 찾아 b요소로 그 태그를 출력*/
+    
+    // 배열로 선언한것
+    var res = new Array();
+    $(document).ready(function(){
+        $("b").parents().each(function(i){
+            res[i] = this.tagName;
+        })
+        $("b").append(res + ",");
+    })
+</script>
+</head>
+<body>
+  <div>
+    <p>
+      <span> <b> 부모 엘리먼트 모두 검색 : </b> </span>
+    </p>
+  </div>
+</body>
+</html>
