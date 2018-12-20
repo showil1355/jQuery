@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트에 자식 엘리먼트로 추가하기</title>
+<style type="text/css">
+span { display:block; }
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        /*span 요소에 b요소를 탐색하여 첫번째 자식요소로 추가*/
+        $("span").prepend($("b")); /*탐색에서 요소를 찾으면 이동 된다.*/
+    
+        /*span요소에 em요소를 찾아 복사하기 한후 마지막 자식요소로 추가*/
+        $("em").clone().appendTo($("span")); //clone 복사
+    });
+</script>
+</head>
+<body>   
+ <b> 사과 </b>    <em>배</em>
+ <span> 갖고 싶은 과일 : </span>
+ <span> 먹고 싶은 과일 : </span>
+</body>
+</html>

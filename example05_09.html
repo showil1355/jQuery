@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 제거하기</title>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    //button요소를 클릭하면, p요소 안에 span태그를 제거하기
+    $(document).ready(function(){
+        $("button").click(function(){
+            $('p').find("span").remove();
+        })
+    })
+</script>
+</head>
+<body>
+	<button> 엘리먼트 제거하기 </button>
+	<div>	
+		<p>Racoon's</p>	
+		jQuery
+	</div>
+	<p> <span> Mobile </span> </p>
+	<p>Story</p>		
+</body>
+</html>
