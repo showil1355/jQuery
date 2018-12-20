@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>필요 없는 이벤트 제거하기 </title>
+<style type="text/css">
+img{ 
+   width: 140px; height: 120px;		
+}
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    //img요소를 클릭할때 폭과 너비가 2배로 커지도록 구현하되, 클릭이 3번만 가능하도록 구현
+    
+    $(document).ready(function(){
+        var n = 1;
+        $("img").bind('click',function(event){
+            var $t = $(event.target);
+            $t.width($t.width()*2);
+            $t.height($t.height()*2);
+            n = n+1
+            if(n >= 4 ){
+               $t.unbind();
+            }
+        })
+    })
+</script>
+</head>
+<body>   
+   <img src="../img/1.jpg">
+</body>
+</html>

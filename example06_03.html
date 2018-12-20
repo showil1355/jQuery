@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 객체</title>
+<style type="text/css">
+img{ 
+   width: 140px; height: 120px;		
+}
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    /*img 요소를 클릭할때 마다 1.5배씩 폭과 넓이가 증가하는 기능을 구현 다만, event, target을 이용*/
+    
+    $(document).ready(function(){
+        $("img").click(function(event){
+            var $tar = $(event.target);
+            $tar.width($tar.width() * 1.5);
+            $tar.height($tar.height() * 1.5);
+        })
+        /*$("img").on("click", function(event){
+            var $tar = $(event.target);
+            $tar.width($tar.width() * 1.5);
+            $tar.height($tar.height() * 1.5);
+        });*/
+    });
+</script>
+</head>
+<body>   
+   <img src="../img/2.jpg">
+</body>
+</html>

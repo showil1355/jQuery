@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+ul { float:left; margin:30px}
+</style>
+<meta charset="UTF-8">
+<title>DOM 엘리멘트에 이벤트 적용하기</title>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    /*a요소에 마우스 포인터를 올리면 a요소의 href속성에 있는 내용을 img 요소의 src 속성으로 대입시키고, 0.5초 후에 페이드 효과를 설정*/
+    $(document).ready(function(){
+        // 1번예제
+        /*$("a").mouseover(function(){
+            $("img").attr("src", $(this).attr("href")).css("display", "none").delay(500).fadeToggle(1000);
+        })*/ 
+        
+        // 2번 예제
+        $("a").bind("mouseover", function(){
+            $("img").attr("src", $(this).attr("href"));
+            $("img").css("display", "none").delay(500).fadeIn(1000);
+        })
+    })
+</script>
+</head>
+<body>   
+   <ul>
+   <li> <a href="../juqery/apple.gif"> 똘이 사진 </a> </li>
+   <li> <a href="../juqery/banana.gif"> 을이 사진 </a> </li>
+   </ul>
+   <img>
+</body>
+</html>
