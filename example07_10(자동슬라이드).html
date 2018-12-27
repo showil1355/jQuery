@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 효과2</title>
+<style>
+#region { 
+  position: relative; width: 200px; height:200px;
+  overflow:hidden;  margin:auto;
+}
+
+#images{
+  width: 400px; height: 200px;
+}
+    
+#images a {
+    display: block;
+    float: left;
+    width: 200px;
+    }
+#images a img {
+  width:200px; height:200px;
+  border:0; position: relative;}
+
+#direction {
+  width: 360px;  margin:auto;
+}    
+.leftbtn{margin-top:10px;}
+.rightbtn{margin-left:290px;margin-top:10px;}
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var wd = $("#region").width(); // 넓이 구하는식
+        var len = $("#images a").length;
+        $("#images").width(wd*len);
+        // 사진 끝까지 길이 구하는것
+        var maxLength = wd*(len-1)*-1;
+        var aniLenth;
+        var sw = 1;
+        //setinterval 은 주기적으로 실행할 내용을 셋팅하는것
+            //실행할 함수를 호출한다.
+        var intv = setInterval(function(){rightMovie();}, 3000);
+        $(".rightbtn").click(function(){
+            //셋팅된 인터벌을 지우는 함수
+            clearInterval(intv);
+            aniLenth = parseInt($("#images").css("margin-left"));
+            // 구한 마진값이 사진끝길이보다 클때 실행
+            if (maxLength < aniLenth){
+                $("#images").not(":animated").animate({"margin-left" : "-=" + wd + "px"}, 500);
+            } else {
+                $("#images").not(":animated").animate({"margin-left" : "0px"}, 500);
+            }
+        });
+        $(".leftbtn").click(function(){
+            clearInterval(intv);
+            aniLenth = parseInt($("#images").css("margin-left"));
+            if (aniLenth < 0){
+                $("#images").not(":animated").animate({"margin-left" : "+=" + wd + "px"}, 500);
+            } else {
+                $("#images").not(":animated").animate({"margin-left" : maxLength + "px"}, 500);
+            }
+        });
+        
+        
+        $("#stop").click(function(){
+            if ( sw == 1) {
+                clearInterval(intv);
+                $("#stop").text("재생");
+            } else {
+                var intv = setInterval(function(){rightMovie();}, 3000);    
+                $("#stop").text("중지");
+            }
+            sw = sw*-1;
+            
+        })
+        
+        function rightMovie(){
+            // 비교하기위해 정수로 바꾼후 마진left값을 구한것(현재 몇번째 이미지값을 알기위해 구하는것)
+            aniLenth = parseInt($("#images").css("margin-left"));
+            // 구한 마진값이 사진끝길이보다 클때 실행
+            if (maxLength < aniLenth){
+                $("#images").not(":animated").animate({"margin-left" : "-=" + wd + "px"}, 500);
+            } else {
+                $("#images").not(":animated").animate({"margin-left" : "0px"}, 500);
+            }
+        }
+        
+        function leftMovie(){
+            aniLenth = parseInt($("#images").css("margin-left"));
+            if (aniLenth < 0){
+                $("#images").not(":animated").animate({"margin-left" : "+=" + wd + "px"}, 500);
+            } else {
+                $("#images").not(":animated").animate({"margin-left" : maxLength + "px"}, 500);
+            }
+        }
+    });
+</script>
+</head>
+<body>
+	<div id="region">
+		<div id="images">
+			<a href="#"><img src="../img/2.jpg"/></a> 
+			<a href="#"><img src="../img/3.jpg"/></a>
+			<a href="#"><img src="../img/4.jpg"/></a>
+			<a href="#"><img src="../img/5.jpg"/></a>
+			<a href="#"><img src="../img/6.jpg"/></a>
+			<a href="#"><img src="../img/7.jpg"/></a>
+		</div>
+	</div>
+	<div id="direction">
+		<button class="leftbtn">&laquo;</button>
+		<button class="rightbtn">&raquo;</button>
+		<button id="stop">정지</button>
+	</div>
+</body>
+</html>

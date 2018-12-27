@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 효과</title>
+<style>
+#region { 
+  position: relative; width: 200px; height:200px;
+  overflow:hidden;  margin:auto;
+}
+
+#images{
+  width: 400px; height: 200px;
+}
+    
+#images a {
+    display: block;
+    float: left;
+    width: 200px;
+    }
+#images a img { 
+  width:200px; height:200px; 
+  border:0; position: relative;}
+
+#direction {
+  width: 360px;  margin:auto;
+}    
+.leftbtn{margin-top:10px;}
+.rightbtn{margin-left:290px;margin-top:10px;}
+</style>
+<script src="../juqery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    /*$(document).ready(function(){
+        var wd = $("#region").width(); // 넓이 구하는식
+        $(".leftbtn").click(function(){
+            /*$("#images").animate({"margin-left" : "-200px"}, 500);
+            $("#images").animate({"margin-left" : "-" + wd + "px"}, 500)
+        });
+        $(".rightbtn").click(function(){
+            $("#images").animate({"margin-left" : "0px"}, 500);
+        });
+    });
+    */
+    
+    $(document).ready(function(){
+        var wd = $("#region").width(); // 넓이 구하는식
+        var len = $("#image a").length;
+        $(".leftbtn").click(function(){
+            /*$("#images").animate({"margin-left" : "-200px"}, 500);*/
+            $("#images").animate({"margin-left" : "-" + wd + "px"}, 500)
+        });
+        $(".rightbtn").click(function(){
+            $("#images").animate({"margin-left" : "0px"}, 500);
+        });
+    });
+</script>
+</head>
+<body>
+	<div id="region">
+		<div id="images">
+			<a href="#"><img src="../img/2.jpg" id="leftimage" /></a> 
+			<a href="#"><img src="../img/3.jpg" id="rightimage" /></a>
+		</div>
+	</div>
+	<div id="direction">
+		<button class="leftbtn">&laquo;</button>
+		<button class="rightbtn">&raquo;</button>
+	</div>
+</body>
+</html>
